@@ -1,5 +1,5 @@
 
-export default async (m, { up, q, d, conn }) => {
+export default async (m, { up, q, d, conn, bot }) => {
 	try {
 		let parti = up.key.participant;
 		let mstub = up.messageStubType ? up.messageStubParameters.join() : '';
@@ -13,12 +13,21 @@ export default async (m, { up, q, d, conn }) => {
 					case 22: { // DETEK PP UPDATE GC
 						throw r(q.fppgc);
 					} break;
+					case 25: { // DETEK SETTING GC
+						if (mstub == 'off') throw r(q.fbinp);
+						if (mstub == 'on') throw r(q.ftinp);
+					} break;
+					case 26: { // DETEK TUTUP/BUKA GC
+						if (mstub == 'off') throw r(q.fbgc);
+						if (mstub == 'on') throw r(q.ftgc);
+					} break;
 					case 27: { // ADD
 						if (!up.key.participant) throw r(q.faddlink);
 						if (!up.key.participant && m.isOwn) throw r(q.fownerjoin);
 						throw r(q.faddadmin);
 					} break;
 					case 28: { // KICK
+						if (mstub.includes(bot)) return
 						throw r(q.fkick);
 					} break;
 					case 29: { // PROMOTE
@@ -28,6 +37,7 @@ export default async (m, { up, q, d, conn }) => {
 						throw r(q.fdm);
 					} break;
 					case 32: { // LEAVE
+						if (mstub.includes(bot)) return
 						throw r(q.fout);
 					} break;
 					case 71: { // ADD INVITE

@@ -13,6 +13,7 @@ export default (serve, m, s) => {
 			m.chat = m.key.remoteJid
 			m.fromMe = m.key.fromMe
 			m.isGc = m.chat.endsWith(q.idgc)
+			m.isPc = m.chat.endsWith(q.idwa)
 			if (m.isGc) m.participant = serve.createJid(m.key.participant) || ''
 			m.sender = serve.createJid(m.fromMe && serve.user.id || m.participant || m.key.participant || m.chat || '')
 			m.isOwn = q.developer.map(v=> v+q.idwa).includes(m.sender)

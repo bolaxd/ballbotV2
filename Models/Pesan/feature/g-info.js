@@ -21,13 +21,13 @@ export const handle = async (m, { q, conn, meta, isBotAdmin, isAdmin }) => {
 	} else if (m.query == 'gcbuka') {
 		if (!isBotAdmin) return conn.sendteks(m.chat, q.botadmin, m)
 		if (!isAdmin) return conn.sendteks(m.chat, q.admin, m)
-		conn.groupSettingUpdate(m.chat, 'announcement')
+		conn.groupSettingUpdate(m.chat, 'not_announcement')
 			.then(v => conn.sendteks(m.chat, q.sukses, m))
 			.catch(v => conn.sendteks(m.chat, q.gagal, m))
 	} else if (m.query == 'gctutup') {
 		if (!isBotAdmin) return conn.sendteks(m.chat, q.botadmin, m)
 		if (!isAdmin) return conn.sendteks(m.chat, q.admin, m)
-		conn.groupSettingUpdate(m.chat, 'not_announcement')
+		conn.groupSettingUpdate(m.chat, 'announcement')
 			.then(v => conn.sendteks(m.chat, q.sukses, m))
 			.catch(v => conn.sendteks(m.chat, q.gagal, m))
 	} else if (m.query == 'infobuka') {

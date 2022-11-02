@@ -1,20 +1,30 @@
 import { youtubeSearch } from '@bochilteam/scraper';
 
-export const handle = async (m, { q, d, conn }) => {
+export const handle = async (m, { q, d, conn, bb }) => {
 	try {
 		if (!m.query) throw q.query
 		await conn.sendteks(m.chat, q.wait, m)
-		let res = await youtubeSearch(m.query)
-		let teks = 'YOUTUBE SEARCH...\n\n'
-		for (let u of res.video) {
-		teks	+=`*JUDUL:* ${!u.title ? 'Tidak terdeteksi' : u.title}\n`
-		teks	+=`*DESCRIPTION:* ${!u.description ? 'Tidak terdeteksi' :u.description}\n`
-		teks	+=`*VIEWERS:* ${!u.viewH ? 'Tidak terdeteksi': u.viewH}\n`
-		teks	+=`*DURASI:* ${!u.durationH ? 'Tidak terdeteksi' :u.durationH}\n`
-		teks	+=`*PUBLISH:* ${!u.publishedTime ? 'Tidak terdeteksi': u.publishedTime}\n`
-		teks	+=`*CHANNEL:* ${!u.authorName ? 'Tidak terdeteksi': u.authorName}\n`
-		teks	+=`*LINK:* ${!u.url ? 'Tidak terdeteksi': u.url}\n\n`
+		if (m.args[0] == 'datasheet234') {
+			let but = [
+				['Video', `.hehe ${m.args[1]}`],
+				['Dokument', `.hehe ${m.args[1]}`],
+				['Music', `.hehe ${m.args[1]}`],
+			]
+			conn.butteks(m.chat, "Silahkan Pilih Opsi Download Dibawah...", `Youtube Search by: ${q.name}`, but, m, d.f2('Youtube', m.args[2], m.args[1]))
+		} else {
+			let res = await youtubeSearch(m.query)
+			let isi = res.video.map(i=> [
+				i.title ? i.title : 'Tidak terdeteksi',
+				`.youtube datasheet234 ${i.url ? i.url : 'noll'} ${i.thumbnail ? i.thumbnail : 'noll'}`,
+				`diterbitkan : ${!i.publishedTime ? 'Tidak terdeteksi': i.publishedTime}	|	`
+				+`views : ${!i.viewH ? 'Tidak terdeteksi': i.viewH}	|	`
+				+`durasi : ${!i.durationH ? 'Tidak terdeteksi' : i.durationH}	|	`
+				+`channel : ${!i.authorName ? 'Tidak terdeteksi': i.authorName}\n\n`
+				+`desc : ${!i.description ? 'Tidak terdeteksi' :i.description}\n\n`
+				+`link : ${!i.url ? 'Tidak terdeteksi': i.url}\n\n`
+				])
+				if (!res.video) isi.push([`Youtube Search by: bolaxd`, `hoho`, ''])
+			conn.sendlist(m.chat, `Pencarian Ditemukan....\nTerdapat = ${res.video.length} Dalam mesin pencarian youtube dari kata kunci ${m.query}`, q.name, isi, m)
 		}
-		conn.sendteks(m.chat, teks, m, d.f2('Youtube Search', res.video[0].thumbnail, res.video[0].url))
 	} catch (e) { conn.sendteks(m.chat, e, m) }
 }

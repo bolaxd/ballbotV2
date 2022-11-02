@@ -2,15 +2,14 @@ import fs from 'fs';
 
 const json = JSON.parse(fs.readFileSync('./Models/Pesan/commands.json'));
 
-export const handle = async (m, { q, conn, d, bb, getpp }) => {
+export const handle = async (m, { q, conn, d, bb, getpp, more }) => {
 	const getmenu = (nama, ciri, db) => {
-		let more = String.fromCharCode(8206).repeat(4001)
-		let teks = `\n*${nama}*\n`
-		for (let o of db) if (o[1].startsWith(ciri)) teks += bb(m.preff+o[0])+'\n'
+		let teks = '\n'+q.sub(nama)+'\n'
+		for (let o of db) if (o[1].startsWith(ciri)) teks += q.cmd(bb(m.preff+o[0]))+'\n'
 		teks += more
 		return teks
 	}
-	let teks = `					DAFTAR MENU		\n`
+	let teks = q.tit('DAFTAR MENU')+'\n\n'
 		teks += getmenu('BOT', 'b-', json[0])
 		teks += getmenu('FUN', 'f-', json[0])
 		teks += getmenu('GROUP', 'g-', json[0])

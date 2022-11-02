@@ -1,16 +1,11 @@
 
 export const handle = async (m, { q, conn }) => {
-	let [ url, hari ] = m.query.split(' ');
-	if (!url) return conn.sendteks(m.chat, q.aslink, m);
-	if (!q.url(url)) return conn.sendteks(m.chat, q.flink, m);
-	let code = url.split('whatsapp.com/')[1];
-	let inv = await conn.groupGetInviteInfo(code);
-	let db = db.data.chat[inv.id];
-	if (m.isOwn) {
+	try {
+		if (!m.isOwn) throw q.owner
+		if (!m.args[0]) throw q.aslink
+		if (!q.url(m.args[0])) throw q.flink
+		let code = m.args[0].split('whatsapp.com/')[1];
 		await conn.groupAcceptInvite(code)
-		.then(v =>conn.sendteks(m.chat, q.sukses, m)).catch(e=>conn.sendteks(m.chat, q.gagal, m));
-	} else {
-		await conn.groupAcceptInvite(code)
-		.then(v =>conn.sendteks(m.chat, q.sukses, m)).catch(e=>conn.sendteks(m.chat, q.gagal, m));
-	}
+		.then(v => q.sukses).catch(e=> q.gagal);
+	} catch (e) { conn.sendteks(m.chat, e, m) }
 }

@@ -13,4 +13,4 @@ node_modules
 package-lock.json
 yarn.lock.json
 database.json
-Auth/*.json
+Auth
