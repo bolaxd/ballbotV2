@@ -5,6 +5,7 @@
 		["del", "b-delete"],
 		["delete", "b-delete"],
 		["groupbot", "b-gcbot"],
+                ["totalfitur", "b-totalfitur"],
 		["listblock", "b-listblock"],
 		["menu", "b-menu"],
 		["help", "b-menu"],
