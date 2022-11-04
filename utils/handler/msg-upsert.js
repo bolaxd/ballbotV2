@@ -1,5 +1,5 @@
 import { db } from '../schema/schema.js';
-import d from '../helper/function.js';
+import d from '../helper/fake.js';
 import q from '../../Setting/settings.js';
 import detect from './detect.js';
 import cmds from './commands.js';
