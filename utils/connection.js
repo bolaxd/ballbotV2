@@ -1,7 +1,7 @@
 process.on('uncaughtException', console.error);
 const { DisconnectReason } = (await import('baileys')).default;
 import q from '../Setting/settings.js';
-import b from './Fake/function.js';
+import b from './helper/fake.js';
 import { Boom } from '@hapi/boom';
 import { _ } from './print.js';
 /**
