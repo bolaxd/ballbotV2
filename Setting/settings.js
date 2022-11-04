@@ -14,7 +14,7 @@ export default {
 	mingc: 20, // Minimal Bot Join group 
 	freeadd: 7, // Selain Owner yang joinin bot ke group [ free add ]
 	namedb: 'database', // Nama Database 
-	session: 'Auth', // Nama Session Folder nyaa [ Ini bakalan jadi Folder bukan file ]
+	session: 'Sessions', // Nama Session Folder nyaa [ Ini bakalan jadi Folder bukan file ]
 	api: 'https://malesin.xyz/', // Api malesin
 	
 	// FAIL MESSAGES
