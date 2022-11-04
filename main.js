@@ -1,11 +1,11 @@
 process.on('uncaughtException', console.error); // MEMAKSA TETAP HIDUP WALAU ERROR
-import { _ } from './Models/print.js';
+import { _ } from './utils/print.js';
 console.log(_.cl());
 const { default: KUNTUL_KAWAN, useMultiFileAuthState } = (await import('baileys')).default;
-import { configConn, store } from './Models/config-connection.js';
-import upsert_message from './Models/Pesan/msg-upsert.js';
-import connection_update from './Models/connection.js';
-import bind from './Models/Function/serve.js';
+import { configConn, store } from './utils/config-connection.js';
+import upsert_message from './utils/handler/msg-upsert.js';
+import connection_update from './utils/connection.js';
+import bind from './utils/util/serve.js';
 import q from './Setting/settings.js';
 import { JSONFile } from 'lowdb/node';
 import { Low } from 'lowdb';
