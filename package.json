@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bolaxd/ballbot-v2.git"
+    "url": "git+https://github.com/bolaxd/ballbotV2.git"
   },
   "keywords": [
     "bot",
@@ -28,9 +28,9 @@
   "author": "bolaxd",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bolaxd/ballbot-v2/issues"
+    "url": "https://github.com/bolaxd/ballbotV2/issues"
   },
-  "homepage": "https://github.com/bolaxd/ballbot-v2#readme",
+  "homepage": "https://github.com/bolaxd/ballbotV2#readme",
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^3.0.0",
