@@ -1,7 +1,7 @@
 import fs from 'fs';
 import simi from 'similarity'; //Matikan jika kamu gk perlu kemiripan commands
 import { format } from 'util';
-const jsoncmd = JSON.parse(fs.readFileSync('./Models/Pesan/commands.json'));
+const jsoncmd = JSON.parse(fs.readFileSync('./utils/handler/commands.json'));
 
 export default async (m, extra) => {
 	let { q, d, bb, bot, conn, isblock, up, isAdmin, isBotAd } = extra
