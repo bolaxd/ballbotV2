@@ -41,6 +41,7 @@
 		["setnbot", "o-setnbot"],
 		["setstatus", "o-setstatus"],
                 ["getsessi","o-getsession"],
+                ["getdb", "o-getdb"],
 		["block", "o-block"],
 		["modes", "o-modes"],
 		["join", "o-join"],
