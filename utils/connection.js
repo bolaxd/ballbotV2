@@ -29,8 +29,4 @@ export default async(p, serve, mulai) => {
 	}catch(e){ console.log(e) }
 }
 
-// Note :
-// Bang ini bukan gw enc
-// Tetapi aku gabungin biar cepet
-// Biar lebih fast dalam mengexport ke file lain
 //  [ttd: bolaxd]
