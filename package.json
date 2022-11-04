@@ -1,11 +1,11 @@
 {
   "name": "ballbotv2",
-  "version": "0.28.9",
+  "version": "0.29.9",
   "description": "Ballbot adalah bot whatsapp yang dibuat dengan type module dan di update secara berkala",
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "start": "node main.js"
+    "start": "node --max-old-space-size=4096 main.js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "baileys": "5.0.8",
     "chalk-animation": "^2.0.3",
     "figlet": "^1.5.2",
+    "jszip": "^3.10.1",
     "file-type": "^18.0.0",
     "fs": "^0.0.1-security",
     "got": "^12.5.2",
