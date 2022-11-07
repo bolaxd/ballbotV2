@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const json = JSON.parse(fs.readFileSync('./Models/Pesan/commands.json'));
+const json = JSON.parse(fs.readFileSync('./utils/handler/commands.json'));
 
 export const handle = async (m, { q, conn, d, bb, getpp, more }) => {
 	const getmenu = (nama, ciri, db) => {
