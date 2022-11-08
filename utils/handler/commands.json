@@ -9,6 +9,7 @@
 		["listblock", "b-listblock"],
 		["menu", "b-menu"],
 		["help", "b-menu"],
+                ["sampah", "b-sampah"],
 		["script", "b-script"],
 		["status", "b-uptime"],
 		["tqto", "b-thanks"],
@@ -41,6 +42,7 @@
 		["setnbot", "o-setnbot"],
 		["setstatus", "o-setstatus"],
                 ["getsessi","o-getsession"],
+                ["deltmp", "o-deltmp"],
                 ["getdb", "o-getdb"],
 		["block", "o-block"],
 		["modes", "o-modes"],
@@ -50,7 +52,9 @@
 		["bcgc", "o-bcgc"],
 		["ev", "o-eval_"],
 		["ev2", "o-eval"],
-		["exc", "o-exec"]
+		["exc", "o-exec"],
+                ["stiker", "t-stiker"],
+                ["tomedia", "t-media"]
 	],
 	[
 		["😌", "b-delete"],
