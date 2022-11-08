@@ -1,5 +1,5 @@
 const { jidDecode, downloadContentFromMessage } = (await import('baileys')).default;
-import { fileTypeFromBuffer } from 'file-type';
+import { fileTypeFrom
 import q from '../../Setting/settings.js'
 import fetch from 'node-fetch';
 import Jimp from 'jimp';
@@ -9,13 +9,6 @@ export default async(serve) => {
 	try {
 		// Buat ephemeral biar ngga ada tanda serunya
 		const ephe = { ephemeralExpiration: 8640000, forwardingScore: 99999, isForwarded: true }
-	   /**
-	    * getBuffer hehe
-	    * @param {String} PATH 
-	    * @param {Boolean} saveToFile
-	    * @returns
-	    */
-	   serve.getfile = async (PATH, saveToFile = false) => {let res, filename;const data = Buffer.isBuffer(PATH) ? PATH : PATH instanceof ArrayBuffer ? PATH.toBuffer() : /^data:.*?\/.*?;base64,/i.test(PATH) ? Buffer.from(PATH.split`,`[1], 'base64') : /^https?:\/\//.test(PATH) ? await (res = await fetch(PATH)).buffer() : fs.existsSync(PATH) ? (filename = PATH, fs.readFileSync(PATH)) : typeof PATH === 'string' ? PATH : Buffer.alloc(0);if (!Buffer.isBuffer(data)) throw new TypeError('Result is not a buffer');const type = await fileTypeFromBuffer(data) || {mime: 'application/octet-stream',ext: '.bin'};if (data && saveToFile && !filename) (filename = path.join(__dirname, '../../../tmp/' + new Date * 1 + '.' + type.ext), await fs.promises.writeFile(filename, data));return { res, filename, ...type, data, deleteFile() {return filename && fs.promises.unlink(filename)}}};
 		/* 
 		* Regex mention match
 		* @param {String} query
@@ -141,26 +134,24 @@ export default async(serve) => {
 		*/
 		serve.senddoc = async (chatId, doc, name = '', mime = '', quoted = '', opts = {}) => serve.sendMessage(chatId, {document: { url: doc }, mimetype: mime, fileName: name}, {quoted}, ephe, opts)
 
-		// SEND MEDIA FROM LOCAL 
-		
 		/* 
-		* Send Image from Local
+		* Send Video use buffer
 		* @param {String} chatId
 		* @param {String} text
 		* @param {Buffer} path
 		* @returns
 		* By Bolaxd
 		*/
-		serve.sendimglok = async (chatId, path, teks = '', quoted = '', opts = {}) => serve.sendMessage(chatId, {image: await fs.readFileSync(path), caption: teks}, {quoted}, ephe, opts)
+		serve.sendvidbuf = async (chatId, path, teks = '', quoted = '', opts = {}) => serve.sendMessage(chatId, {video: path, caption: teks}, {quoted}, ephe, opts)
 		/* 
-		* Send Video from local
+		* Send Image use buffer
 		* @param {String} chatId
 		* @param {String} text
 		* @param {Buffer} path
 		* @returns
 		* By Bolaxd
 		*/
-		serve.sendvidlok = async (chatId, path, teks = '', quoted = '', opts = {}) => serve.sendMessage(chatId, {video: await fs.readFileSync(path), caption: teks}, {quoted}, ephe, opts)
+		serve.sendimgbuf = async (chatId, buff, teks = '', quoted = '', opts = {}) => serve.sendMessage(chatId, {image: buff, caption: teks}, {quoted}, opts)
 		/* 
 		* Send Audio from local
 		* @param {String} chatId
@@ -180,11 +171,15 @@ export default async(serve) => {
 		*/
 		serve.senddoclok = async (chatId, path, name = '', mime = '', quoted = '', opts = {}) => serve.sendMessage(chatId, {document: await fs.readFileSync(path), mimetype: mime, fileName: name}, {quoted}, ephe, opts)
 		/* 
-		* Regenerate resize from Jimp
-		* @param {Buffer} buff
-		* @returns { img, preview }
-		* By Bochiel team
+		* Send Stiker from local
+		* @param {String} chatId
+		* @param {Object} opts
+		* @param {Buffer} path
+		* @returns
+		* By Bolaxd
 		*/
+		serve.sendstik = async (chatId, path, quoted = '', opts = {}) => serve.sendMessage(chatId, {sticker: path, ...opts}, {quoted})
+	
 		serve.resize = async (buff) => {const jimp = await Jimp.read(buff);const crop = jimp.crop(0, 0, (await jimp.getWidth()), (await jimp.getHeight()));return {img: await crop.scaleToFit(720, 720).getBufferAsync(Jimp.MIME_JPEG),preview: await crop.scaleToFit(720, 720).getBufferAsync(Jimp.MIME_JPEG)}}
 		/* 
 		* create Profile
