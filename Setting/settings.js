@@ -44,6 +44,7 @@ export default {
 	ok: 'Oke Min',
 	// SET WELLCOME DEFAULT
 	// @sub @user @admin @jmlh
+	joingc: 'Hai kak, saya ballbot\nSaya masuk kesini atas dasar perintah owner saya :)\nSaya out dari group ini jika owner saya memerintahkan keluar\nMohon gunakan Bot ini sebaik mungkin yaah :)',
 	fsub: '@admin Telah mengubah Subject group menjadi @sub', 
 	fppgc: '@admin Telah mengubah Foto profile group',
 	fbgc: '@admin Telah membuka Group ini, Member sekarang dapat mengirim pesan ke group ini',
@@ -83,5 +84,5 @@ export default {
 	rdm: (array)=>{return array[Math.floor(Math.random() * array.length)]},
 	cut: (teks, pnjg) => teks.substr(0, pnjg) + '<More '+teks.length - pnjg+' Character>',
 	time: (times) => {const seconds = Math.floor((times / 1000) % 60), minutes = Math.floor((times / (60 * 1000)) % 60), hours = Math.floor((times / (60 * 60 * 1000)) % 24), days = Math.floor((times / (24 * 60 * 60 * 1000)));return ((days ? `${days} Hari ` : '') + (hours ? `${hours} Jam ` : '') +(minutes ? `${minutes} Menit ` : '') +(seconds ? `${seconds} Detik` : '')).trim()}
-	
+	tmp: async(fileWithPath) => await fs.renameSync(fileWithPath, fileWithPath+'.tmp')
 }
