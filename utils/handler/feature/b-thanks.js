@@ -11,6 +11,8 @@ export const handle = async (m, { q, d, conn }) => {
 				+ `https://github.com/BochilTeam\n`
 				+ `${q.a6}\nDavekgw [ Kontributor script ini ]\n`
 				+ `https://github.com/Davekgw\n`
+				+ `${q.a6}\nShionMDv [ Kontributor script ini ]\n`
+				+ `https://github.com/ShionMDv\n`
 				+ `${q.a6}\n`
 				+ `Jika anda berkenan memakai script ini? anda bisa mengunjungi github saya disini\n`
 				+ `https://github.com/bolaxd/ballbotV2\n`
