@@ -1,4 +1,4 @@
-import { toVid, toJpg } from '../../Function/convert-media.js';
+import { toVid, toJpg } from '../../util/convert-media.js';
 
 export const handle = async (m, { q, d, conn, mime, quoted }) => {
 	if (!m.quoted) return conn.sendteks(m.chat,'reply stiker nya',m);
