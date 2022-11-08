@@ -1,5 +1,4 @@
 const { jidDecode, downloadContentFromMessage } = (await import('baileys')).default;
-import { fileTypeFrom
 import q from '../../Setting/settings.js'
 import Jimp from 'jimp';
 import fs from 'node:fs';
