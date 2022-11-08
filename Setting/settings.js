@@ -84,5 +84,4 @@ export default {
 	rdm: (array)=>{return array[Math.floor(Math.random() * array.length)]},
 	cut: (teks, pnjg) => teks.substr(0, pnjg) + '<More '+teks.length - pnjg+' Character>',
 	time: (times) => {const seconds = Math.floor((times / 1000) % 60), minutes = Math.floor((times / (60 * 1000)) % 60), hours = Math.floor((times / (60 * 60 * 1000)) % 24), days = Math.floor((times / (24 * 60 * 60 * 1000)));return ((days ? `${days} Hari ` : '') + (hours ? `${hours} Jam ` : '') +(minutes ? `${minutes} Menit ` : '') +(seconds ? `${seconds} Detik` : '')).trim()}
-	tmp: async(fileWithPath) => await fs.renameSync(fileWithPath, fileWithPath+'.tmp')
 }
