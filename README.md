@@ -26,6 +26,8 @@ Persiapan for termux:
 ```bash
 $ pkg install git
 $ pkg install nodejs-lts
+$ pkg install imagemagick
+$ pkg install ffmpeg
 $ git -v
 $ nodejs -v
 $ npm -v
