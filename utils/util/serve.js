@@ -1,9 +1,8 @@
 const { jidDecode, downloadContentFromMessage } = (await import('baileys')).default;
 import { fileTypeFrom
 import q from '../../Setting/settings.js'
-import fetch from 'node-fetch';
 import Jimp from 'jimp';
-import fs from 'fs';
+import fs from 'node:fs';
 
 export default async(serve) => {
 	try {
@@ -179,7 +178,18 @@ export default async(serve) => {
 		* By Bolaxd
 		*/
 		serve.sendstik = async (chatId, path, quoted = '', opts = {}) => serve.sendMessage(chatId, {sticker: path, ...opts}, {quoted})
-	
+                /* 
+		* Regenerate resize from Jimp
+		* @param {Buffer} buff
+		* @returns { img, preview }
+		* By Bochiel team
+		* Send Stiker from local
+		* @param {String} chatId
+		* @param {Object} opts
+		* @param {Buffer} path
+		* @returns
+		* By Bolaxd
+		*/
 		serve.resize = async (buff) => {const jimp = await Jimp.read(buff);const crop = jimp.crop(0, 0, (await jimp.getWidth()), (await jimp.getHeight()));return {img: await crop.scaleToFit(720, 720).getBufferAsync(Jimp.MIME_JPEG),preview: await crop.scaleToFit(720, 720).getBufferAsync(Jimp.MIME_JPEG)}}
 		/* 
 		* create Profile
