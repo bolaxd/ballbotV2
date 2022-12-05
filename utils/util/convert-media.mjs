@@ -15,14 +15,14 @@ import q from '../../Setting/settings.mjs';
 */
 let jsonPostData = (name, pack) => { return {"sticker-pack-id": "bolaxd_pack_login", "sticker-pack-name": pack, "sticker-pack-publisher": name, "emojis": ["bolaxd-emoji-api"] }};
 let fn = {
-	jpg: `./TMP/image-${Date.now()}.jpg`,
-	vid: `./TMP/video-${Date.now()}.mp4`,
-	webp: `./TMP/stiker-${Date.now()}.webp`,
-	webp2: `./TMP/stiker-${Date.now()}_.webp`,
-	png: `./TMP/png-${Date.now()}_.png`,
-	gif: `./TMP/gif-${Date.now()}_.gif`,
-	aud: `./TMP/mp3-${Date.now()}_.mp3`,
-	aud2: `./TMP/mp3-${Date.now()}.mp3`
+	jpg: `./TMP/image-${new Date()*1}.jpg`,
+	vid: `./TMP/video-${new Date()*1}.mp4`,
+	webp: `./TMP/stiker-${new Date()*1}.webp`,
+	webp2: `./TMP/stiker-${new Date()*1}_.webp`,
+	png: `./TMP/png-${new Date()*1}_.png`,
+	gif: `./TMP/gif-${new Date()*1}_.gif`,
+	aud: `./TMP/mp3-${new Date()*1}_.mp3`,
+	aud2: `./TMP/mp3-${new Date()*1}.mp3`
 };
 
 /**

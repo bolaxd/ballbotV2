@@ -1252,5 +1252,49 @@
       "reason": null,
       "lastafk": -1
     }
+  ],
+  [
+    "6288228366486@s.whatsapp.net",
+    {
+      "win": 0,
+      "lose": 0,
+      "coin": 0,
+      "lastclaim": 1670258030508,
+      "reason": null,
+      "lastafk": -1
+    }
+  ],
+  [
+    "6282161996132@s.whatsapp.net",
+    {
+      "win": 0,
+      "lose": 0,
+      "coin": 0,
+      "lastclaim": 1670258367646,
+      "reason": null,
+      "lastafk": -1
+    }
+  ],
+  [
+    "6281373160606@s.whatsapp.net",
+    {
+      "win": 0,
+      "lose": 0,
+      "coin": 0,
+      "lastclaim": 1670258977732,
+      "reason": null,
+      "lastafk": -1
+    }
+  ],
+  [
+    "6282302401825@s.whatsapp.net",
+    {
+      "win": 0,
+      "lose": 0,
+      "coin": 0,
+      "lastclaim": 1670259104972,
+      "reason": null,
+      "lastafk": -1
+    }
   ]
 ]
