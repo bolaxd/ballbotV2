@@ -395,5 +395,23 @@
       "antivo": false,
       "autostik": false
     }
+  ],
+  [
+    "120363042798060976@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
   ]
 ]
