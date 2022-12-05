@@ -1,0 +1,111 @@
+[
+  [
+    "120363028169856287@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363045815594447@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false,
+      "autotes": false
+    }
+  ],
+  [
+    "120363023079959406@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363044501490852@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363028822706616@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363041493745571@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ]
+]
