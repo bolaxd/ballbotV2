@@ -1,7 +1,7 @@
 const handle = async (m, { q, conn, bot, db }) => {
    // write default database by bolaxd
    let cari = db.set.find((v) => v[0] == bot);
-   let i = db.users.findIndex(v => v[0] == bot);
+   let i = db.set.findIndex(v => v[0] == bot);
    // property of array
    let publik = true; // [1][0]
    let call = true; // [1][1]
