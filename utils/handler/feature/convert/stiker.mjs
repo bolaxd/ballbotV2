@@ -1,4 +1,4 @@
-import { imgToStiker, vidToStiker } from "../../../util/convert-media.js";
+import { imgToStiker, vidToStiker } from "../../../util/convert-media.mjs";
 
 const handle = async (m, { q, conn, d, quoted, mime, bot, repl, db }) => {
    let teks = "reply foto / kirim foto dengan caption .stiker";
