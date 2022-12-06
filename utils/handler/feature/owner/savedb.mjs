@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 const handle = async (m, { q, quoted, conn, repl }) => {
-	if (!m.isOwn) return repl(w.owner)
+	if (!m.isOwn) return repl(q.owner)
 	if (!/(imageMessage|videoMessage|audioMessage|stickerMessage)/.test(m.quoted?.mtype)) return repl('Reply gambar / video / audio yang ingin di save ke media bot')
 	if (!m.query) return repl('Beri nama file tersebut...')
 	let buf = await m.quoted.download()

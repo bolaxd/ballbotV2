@@ -9,7 +9,7 @@ const handle = async (m, { q, conn, db }) => {
 	var lastclaim = Date.now();  // [1].lastclaim
 	var reason = null; // [1].reason
 	var lastafk = -1; // [1].lastafk
-
+	var daftar = false
 	// indentify user in arrays database
 	if (cari) {
 		if (!db.users[i][1].win) Object.assign(db.users[i][1], {win});
@@ -18,6 +18,7 @@ const handle = async (m, { q, conn, db }) => {
 		if (!db.users[i][1].lastclaim) Object.assign(db.users[i][1], {lastclaim});
 		if (!db.users[i][1].reason) Object.assign(db.users[i][1], {reason});
 		if (!db.users[i][1].lastafk) Object.assign(db.users[i][1], {lastafk});
+        if (!db.users[i][1].daftar) Object.assign(db.users[i][1], {daftar});
 	// identify not found!
 	} else if (!cari) {
 		db.users.push([
@@ -28,7 +29,8 @@ const handle = async (m, { q, conn, db }) => {
 				coin,
 				lastclaim,
 				reason,
-				lastafk
+				lastafk,
+                daftar
 			}
 		]);
 	}
