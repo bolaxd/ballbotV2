@@ -413,5 +413,95 @@
       "antivo": false,
       "autostik": false
     }
+  ],
+  [
+    "6283114465083-1631062987@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363022882943237@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363041945864121@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363046320550746@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363038966676482@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
   ]
 ]

@@ -121,6 +121,33 @@ kita tahu bahwa function ```cmds``` adalah cmd yang berasal dari folder ```featu
 anda membayangkan seolah olah ```msg-upsert.mjs``` dan ```controlers.mjs``` itu seperti handler.js di script plugin yang beredar 
 anda harus belajar memahami script plugin local sebelom merubah / menambahkan fitur di script ini 
 
+### Cara mengubah plugin dalam script Via koding whatsapp
+
+Cara untuk menambahkan atau mengambil plugin yang ada anda bisa menggunakan command ```.gp```, ```.sp```, dan ```.dp```
+
+Jika anda ingin mengambil plugin yang ada anda menggunakan ```.gp``` namacommand
+contoh anda ingin mengambil plugin afk maka anda harus menyatakan nya setelah command :
+```.gp afk```
+
+Cara untuk menyimpan plugin juga dibuat semudah mungkin, untuk cara menyimpan plugin anda harus menggunakan command : ```.sp```
+contoh anda tadi baru saja mengedit plugin afk, untuk menyimpan nya krmbali kedalam plugin tersebut anda harus menggunakan command ```.sp``` Contoh :
+```.sp afk```
+
+Untuk penghapusan plugin juga sama, anda cukup memanggil command nya saja
+
+### Cara menambahkan command pada menu dan lainnya
+
+Untuk cara menambahkan command anda tidak perlu ribet ribet membuka script ```listcmd.json```, anda cukup menambahkan nya via whatsapp saja ( pastikan bot telah tersambung ke server )
+Anda bisa menggunakan command .cmdset namaCommand@TempatAsalPluginNya
+
+Contoh anda ingin menambahkan command ```.br``` untuk memunculkan brainly, dan plugin brainly terletak pada Folder ```internet``` dan nama plugin nya adalah ```brainly.mjs``` 
+Jadi begini cara nya:
+
+```.cmdset br@internet/brainly```
+
+Ketika anda telah menambahkan nya, anda coba tes dengan perintah ```.br``` pada bot anda
+jika berhasil? Maka akan di respon oleh botnya
+
 Jika anda memiliki pertanyaan atau masih bingung dengan penjelasan di readme.md anda bisa tanyakan di group diskusi kami
 
 [![Grup WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/Joejcs0ebWl5Kqn97YEl4z)
