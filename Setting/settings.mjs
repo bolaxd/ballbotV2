@@ -8,8 +8,8 @@ export default {
    prems: JSON.parse(fs.readFileSync("./Setting/prems.json"))??["6285728625940","6285381039923"], // cek di prems.json
    browser: ["bolaxd", "safari", "1.0.0"],
    gcbot: ["120363041493745571@g.us"] /* Only ID */,
-   thumb: "https://telegra.ph/file/7cbcad4a64086b99423ba.jpg",
-   thumb2: "https://telegra.ph/file/7cbcad4a64086b99423ba.jpg",
+   thumb: "https://telegra.ph/file/56dc40ec3482f73f0f1c7.jpg",
+   thumb2: "https://telegra.ph/file/56dc40ec3482f73f0f1c7.jpg",
    emailgh: "iqbalsheila619@gmail.com", // Setting to your email github
    usernamegh: "bolaxd", // setting to your username github
    longqr: 50000, // DURASI LAMA QR

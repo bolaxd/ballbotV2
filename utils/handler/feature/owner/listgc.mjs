@@ -3,7 +3,7 @@ const handle = async (m, { q, conn, findAdmin, repl, cache }) => {
 	let bot = await conn.createJid(conn.user.id);
 	if (m.args[0] === 'detail') {
 		if (!m.isOwn) return repl(q.owner)
-		let meta = await cache.get(m.args[1]).catch(e => conn.groupMetadata(m.args[1]))
+		let meta = await cache.get(m.args[1])
 		let isBot = findAdmin(meta.participants).includes(bot)
 		let list = []
 		let teks = `====[  DETAIL GROUP  ]====\n\n`

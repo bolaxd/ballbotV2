@@ -1,4 +1,4 @@
-import { toUrl } from '../../../util/convert-media.js';
+import { toUrl } from '../../../util/convert-media.mjs';
 
 const handle = async (m, { q, conn, quoted, mime, repl }) => {
 	if (!/image/.test(mime)) return repl('Upload lah gambar!');
