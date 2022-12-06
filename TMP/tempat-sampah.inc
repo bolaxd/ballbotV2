@@ -1,0 +1,1 @@
+Ini adalah tempat sampah yg dibikin untuk keperluan menaruh barang barang, seperti stiker dan lain lain
