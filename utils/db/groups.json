@@ -503,5 +503,23 @@
       "antivo": false,
       "autostik": false
     }
+  ],
+  [
+    "6283126228180-1621417309@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
   ]
 ]
