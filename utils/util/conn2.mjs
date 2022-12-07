@@ -18,13 +18,13 @@ const bebek = async (m, u, conn, q, kontol, conn2, db, fold) => {
 		let noUser = conn2.createJid(conn2.user.id)
 		conn.sendteks(m.chat, `@${noUser.split('@')[0]} Telah tersambung ke server ${q.name}...`, m);
         let i = db.set.findIndex(v => v[0] == conn.createJid(conn.user.id))
-        if (db.set[i][1].jadibot.findIndex(v => v.id == noUser) == -1) {
+        if (!db.set[i][1].jadibot.findIndex(v => v.id == noUser) == -1) {
         db.set[i][1].jadibot.push({ id: m.sender, bot: noUser, folder: fold })
         }
 	} else if (connection == 'close') {
     
-		//kontol(conn, q, m)
-		conn.sendteks(m.chat, `Koneksi berhenti...\nSilahkan anda command .jadibot lagi`, m);
+		kontol(conn, q, m, db, fold)
+		conn.sendteks(m.chat, `Menghubungkan ke session...`, m);
 	}
 }
 
@@ -34,7 +34,7 @@ let mulai = async (conn, q, m, db, fold) => {
 	bind(conn2)
 	store.bind(conn2.ev);
 		conn2.ev.on('connection.update', async (u) => bebek(m, u, conn, q, mulai, conn2, db, fold));
-		conn2.ev.on('messages.upsert', async (u) => msgUp(u, conn2, store));
+		conn2.ev.on('messages.upsert', async (u) => msgUp(u, conn2, store, db, q));
 		conn2.ev.on('creds.update', saveCreds);
 	return conn2;
 }

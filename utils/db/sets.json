@@ -13,5 +13,20 @@
       "setmenu": "list",
       "jadibot": []
     }
+  ],
+  [
+    "6285602806360@s.whatsapp.net",
+    {
+      "publik": true,
+      "call": true,
+      "group": true,
+      "main": false,
+      "antitag": false,
+      "store": {},
+      "pack": "Mei stiker++",
+      "auth": "Mei botz",
+      "setmenu": "list",
+      "jadibot": []
+    }
   ]
 ]

@@ -1,4 +1,4 @@
-let folder = `./TMP/db-bot${Date.now()}`
+let folder = `TMP/db-bot${Date.now()}`
 const handle = async(m, { q, conn, mulai, repl, db, bot }) => {
 	let i = db.set.findIndex(v => v[0] == bot)
 	let o = db.set[i][1].jadibot.findIndex(v => v.id == m.sender)
