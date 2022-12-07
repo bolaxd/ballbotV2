@@ -1,19 +1,5 @@
 [
   [
-    "6282142917550@s.whatsapp.net",
-    {
-      "publik": true,
-      "call": true,
-      "group": true,
-      "main": false,
-      "antitag": false,
-      "store": {},
-      "pack": "Mei stiker++",
-      "auth": "Mei botz",
-      "setmenu": "list"
-    }
-  ],
-  [
     "6287839067186@s.whatsapp.net",
     {
       "publik": true,
@@ -24,7 +10,8 @@
       "store": {},
       "pack": "Mei stiker++",
       "auth": "Mei botz",
-      "setmenu": "list"
+      "setmenu": "list",
+      "jadibot": []
     }
   ]
 ]

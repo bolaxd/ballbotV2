@@ -20,6 +20,7 @@ const handle = async (m, { q, conn, findAdmin, repl, cache }) => {
 			list.push(['Get Link group', `.listgc link ${m.args[1]}`, `Dapatkan link group ${meta.subject}`])
 			if (meta.announce) list.push(['Open group', `.listgc buka ${m.args[1]}`, `Buka group ${meta.subject}`])
 			else list.push(['close group', `.listgc tutup ${m.args[1]}`, `Tutup group ${meta.subject}`])
+			list.push(['Masukan Owner', `.listgc joinown ${m.args[1]}`])
 		}
 		conn.sendlist(m.chat, teks, q.name, list, m)
 	} else if (m.args[0] === 'pp') {
@@ -32,6 +33,9 @@ const handle = async (m, { q, conn, findAdmin, repl, cache }) => {
 		let code = await conn.groupInviteCode(m.args[1])
 		repl(`Link Group ini\n\nhttps://chat.whatsapp.com/${code}`)
 		.catch(e=> repl(q.gagal))
+	} else if (m.args[0] === 'joinown') {
+		if (!m.isOwn) return repl(q.owner)
+		conn.groupParticipantsUpdate(m.args[1], [m.sender], 'add').then(v => repl('Anda telah di joinkan bot')).catch(e => repl(q.gagal))
 	} else if (m.args[0] === 'leave') {
 		if (!m.isOwn) return repl(q.owner)
 		conn.sendteks(m.args[1], q.leave, m)

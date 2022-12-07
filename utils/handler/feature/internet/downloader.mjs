@@ -4,7 +4,10 @@ import { twitterdl,
 		facebookdl,
 		facebookdlv2,
 		facebookdlv3,
-		savefrom
+		savefrom,
+		youtubedl,
+		youtubedlv2,
+		youtubedlv3,
 	} from '@bochilteam/scraper';
 import axios from 'axios';
 import { format } from 'util';
@@ -18,18 +21,12 @@ const handle = async (m, { q, d, conn, bb, repl }) => {
 	if (m.args[0] == 'download2345') {
 		await repl(bb(q.wait))
 		if (/vid/.test(m.args[1])) {
-			try {
 				conn.sendvid(m.chat, m.args[2], q.sukses, m)
-			} catch (e) { repl(`Terjadi error saat ambil buffer :v\nSilahkan download sendiri melalui link ini\n${m.args[2]}`)}
 		} else if (/music/.test(m.args[1])) {
-			try {
-				conn.sendMessage(m.chat, {audio: {url: m.args[2]}, mimetype: 'audio/mp4'}, {quoted: m})
-			} catch (e) { repl(`Terjadi error saat ambil buffer :v\nSilahkan download sendiri melalui link ini\n${m.args[2]}`)}
+	conn.sendMessage(m.chat, {audio: {url: m.args[2]}, mimetype: 'audio/mp4'}, {quoted: m})
 		} else if (/doc/.test(m.args[1])) {
-			try {
 				// doc name mime
 				conn.senddoc(m.chat, m.args[4], m.args[3], m.args[2], m)
-			} catch (e) { repl(`Terjadi error saat ambil buffer :v\nSilahkan download sendiri melalui link ini\n${m.args[4]}`)}
 		}
 	} else
 	if (/^.*instagram/i.test(m.args[0])) {
@@ -89,10 +86,9 @@ repl(format(data))
 	} else
 	if (/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/.test(m.args[0])) {
 		await repl(bb('Sedang menginisialisasi link...'))
-		let res = await ytv(m.args[0])
-		let res2 = await yta(m.args[0])
-		let but = [['Video', `.download download2345 vid ${res.dl_link}`], ['Audio', `.download download2345 music ${res2.dl_link}`]]
-		conn.butteks(m.chat, `Berhasil mendapatkan url!!!\nSilahkan Pilih tipe nya`, q.name, but, m)
+		let res = await youtubedlv2(m.args[0])
+		/*let but = [['Video', `.download download2345 vid ${res.video['720p'].download()}`], ['Audio', `.download download2345 music ${res.audio['128kbps'].download()}`]]*/
+		conn.sendvid(m.chat, res.video['720p'].download(), 'Nih bang', m)
 	} else repl('Url yang anda masukan tidak sesuai yang tersedia disini\nDownloader terdaftar:\ntiktok\ninstagram\ntwitter\nmediafire\nyoutube\nJika url yang anda request tidak tersedia disini mintalah request ke owner')
 };
 

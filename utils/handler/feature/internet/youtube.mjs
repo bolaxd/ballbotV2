@@ -12,7 +12,7 @@ const handle = async (m, { q, d, conn, bb, repl }) => {
 		let res = await youtubeSearch(m.query)
 		let isi = res.video.map(i=> [
 			i.title ? i.title : 'Tidak terdeteksi',
-			`.youtube datasheet234 ${i.url ? i.url : 'noll'} ${i.thumbnail ? i.thumbnail : 'noll'}`,
+			`.yta datasheet234 ${i.url ? i.url : 'noll'} ${i.thumbnail ? i.thumbnail : 'noll'}`,
 			`diterbitkan : ${!i.publishedTime ? 'Tidak terdeteksi': i.publishedTime}	|	`
 			+`views : ${!i.viewH ? 'Tidak terdeteksi': i.viewH}	|	`
 			+`durasi : ${!i.durationH ? 'Tidak terdeteksi' : i.durationH}	|	`

@@ -102,7 +102,7 @@
       "antistik": false,
       "antiimg": false,
       "antivid": false,
-      "antibot": false,
+      "antibot": true,
       "antiluar": false,
       "antivo": false,
       "autostik": false
@@ -596,6 +596,114 @@
   ],
   [
     "120363022093074041@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363041469289319@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363028830893481@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363042834257811@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363044132737535@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "120363042680286730@g.us",
+    {
+      "ban": false,
+      "detect": true,
+      "link": false,
+      "antidel": false,
+      "antilink": false,
+      "antivn": false,
+      "antistik": false,
+      "antiimg": false,
+      "antivid": false,
+      "antibot": false,
+      "antiluar": false,
+      "antivo": false,
+      "autostik": false
+    }
+  ],
+  [
+    "6281284677230-1600258003@g.us",
     {
       "ban": false,
       "detect": true,

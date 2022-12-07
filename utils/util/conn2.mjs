@@ -5,39 +5,38 @@ import bind from './serve.mjs';
 import { configConnectionJadibot, store } from '../config-connection.mjs';
 import msgUp from '../handler/msg-upsert.mjs';
 
-const bebek = async (m, u, a, q, g, p) => {
+let folder = `TMP/jadibot-${Date.now()}`
+const bebek = async (m, u, conn, q, kontol, conn2, db, fold) => {
 	let { lastDisconnect, connection, qr } = u
 	if (qr) {
-		let scanner = await a.sendimgbuf(m.chat, Buffer.from((await qrcd.toDataURL(qr, { scale: 8 })).split(',')[1], 'base64'), `Silahkan Scan QR Code ini!!!\nWaktu scan Cuma ${q.longqr/1000} detik...\n\nQR akan berhenti dengan sendiri jika tidak ada yang tersambung!!!`, m);
+		let scanner = await conn.sendimgbuf(m.chat, Buffer.from((await qrcd.toDataURL(qr, { scale: 8 })).split(',')[1], 'base64'), `Silahkan Scan QR Code ini!!!\nWaktu scan Cuma ${q.longqr/1000} detik...\n\n`, m);
 		setTimeout(async () => {
-			await a.sendMessage(m.chat, { delete: scanner.key });
+			await conn.sendMessage(m.chat, { delete: scanner.key });
 		}, q.longqr);
 	}
 	if (connection == 'open') {
-		p(g, a, q, m, true)
-		a.sendteks(m.chat, `@${m.sender.split('@')[0]} Telah tersambung ke server ${q.name}....`, m);
+		let noUser = conn2.createJid(conn2.user.id)
+		conn.sendteks(m.chat, `@${noUser.split('@')[0]} Telah tersambung ke server ${q.name}...`, m);
+        let i = db.set.findIndex(v => v[0] == conn.createJid(conn.user.id))
+        if (db.set[i][1].jadibot.findIndex(v => v.id == noUser) == -1) {
+        db.set[i][1].jadibot.push({ id: m.sender, bot: noUser, folder: fold })
+        }
 	} else if (connection == 'close') {
-		p(g, a, q, m, false)
-		a.sendteks(m.chat, `Koneksi telah diputuskan...`, m);
+    
+		//kontol(conn, q, m)
+		conn.sendteks(m.chat, `Koneksi berhenti...\nSilahkan anda command .jadibot lagi`, m);
 	}
 }
 
-let conn2 = async (user, conn, q, m, event) => {
-	let folder = `TMP/jadibot-${user}`
-	const { state, saveCreds } = await useMultiFileAuthState(folder);
-	const c = A(Object.assign(configConnectionJadibot, { auth: state }));
-	bind(c)
-	store.bind(c.ev);
-	if (event == false) {
- 		c.ev.off('connection.update', async (u) => bebek(m, u, conn, q, user, conn2));
-		c.ev.off('messages.upsert', async (u) => msgUp(u, c, store));
-		c.ev.off('creds.update', saveCreds);
-	} else {
-		c.ev.on('connection.update', async (u) => bebek(m, u, conn, q, user, conn2));
-		c.ev.on('messages.upsert', async (u) => msgUp(u, c, store));
-		c.ev.on('creds.update', saveCreds);
-	}
-	return c;
+let mulai = async (conn, q, m, db, fold) => {
+	const { state, saveCreds } = await useMultiFileAuthState(fold);
+	const conn2 = A(Object.assign(configConnectionJadibot, { auth: state }));
+	bind(conn2)
+	store.bind(conn2.ev);
+		conn2.ev.on('connection.update', async (u) => bebek(m, u, conn, q, mulai, conn2, db, fold));
+		conn2.ev.on('messages.upsert', async (u) => msgUp(u, conn2, store));
+		conn2.ev.on('creds.update', saveCreds);
+	return conn2;
 }
 
-export { conn2, bebek }
+export { mulai, bebek }

@@ -1,4 +1,4 @@
-const handle = async (m, { q, conn, quotry }) => {
+const handle = async (m, { q, conn, quotry, repl }) => {
 	if (!m.isOwn) return repl(q.owner);
 	if (!quotry) return repl(q.teks);
 	if (quotry.length >= 100) return repl('Nama tidak boleh lebih dari 100 karakter');

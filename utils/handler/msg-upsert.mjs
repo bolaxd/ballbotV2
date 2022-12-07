@@ -1,6 +1,6 @@
 import { users, groups, sets } from "../schema/index.mjs";
 import { parser, detect } from "./index.mjs";
-import { conn2 } from "../util/index.mjs";
+import { mulai } from "../util/index.mjs";
 import cmds from "./feature/controlers.mjs";
 import printToConsole from "../print.mjs";
 import d from "../helper/fake.mjs";
@@ -18,7 +18,7 @@ export default async (iqbal, serve, s, db, q) => {
       await serve.readMessages([up.key]);
       if (up.key.id.endsWith("BOLA") && up.key.id.length === 32) return;
       if (up.key.id.startsWith("3EB0") && up.key.id.length === 12) return;
-      // console.log(up);
+      //console.log(up);
       let m = parser(serve, up, s);
       let bot = await serve.createJid(serve.user.id);
       if (m.isGc) {
@@ -39,7 +39,7 @@ export default async (iqbal, serve, s, db, q) => {
       extra.bb = bb;
       extra.findAdmin = findAdmin;
       extra.conn = serve;
-      extra.conn2 = conn2;
+      extra.mulai = mulai;
       extra.cache = cache;
       extra.db = {
          users: db.user,
