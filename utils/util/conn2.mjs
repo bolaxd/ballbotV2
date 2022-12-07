@@ -17,9 +17,10 @@ const bebek = async (m, u, conn, q, kontol, conn2, db, fold) => {
 	if (connection == 'open') {
 		let noUser = conn2.createJid(conn2.user.id)
 		conn.sendteks(m.chat, `@${noUser.split('@')[0]} Telah tersambung ke server ${q.name}...`, m);
-        let i = db.set.findIndex(v => v[0] == conn.createJid(conn.user.id))
-        if (!db.set[i][1].jadibot.findIndex(v => v.id == noUser) == -1) {
-        db.set[i][1].jadibot.push({ id: m.sender, bot: noUser, folder: fold })
+        let listjadibot = conn.readjson('./utils/db/jadibot.json')
+        if (!listjadibot.find(i => i.id == noUser)) {
+		listjadibot.push({ id: noUser, folder: fold })      
+		conn.writejson('./utils/db/jadibot.json', listjadibot)
         }
 	} else if (connection == 'close') {
     
@@ -34,7 +35,10 @@ let mulai = async (conn, q, m, db, fold) => {
 	bind(conn2)
 	store.bind(conn2.ev);
 		conn2.ev.on('connection.update', async (u) => bebek(m, u, conn, q, mulai, conn2, db, fold));
-		conn2.ev.on('messages.upsert', async (u) => msgUp(u, conn2, store, db, q));
+		conn2.ev.on('messages.upsert', async (u) => {
+        await q.delay(1000)
+        msgUp(u, conn2, store, db, q)
+        });
 		conn2.ev.on('creds.update', saveCreds);
 	return conn2;
 }

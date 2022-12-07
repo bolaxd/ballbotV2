@@ -56,9 +56,9 @@ const handle = async (m, { q, conn, d, bb, getpp, bot, more, db }) => {
 		// MENU ALL
 		// conn.sendteks(m.chat, menu1, d.f1('Simple menu :v',''), d.f2('Github:me',await getpp(m.sender), q.home))
 		// MENU LIST
-		// conn.sendlist(m.chat, q.tit('LIST MENU')+'\n\n' + menu2, q.name, list, m)
+		conn.sendlist(m.chat, q.tit('LIST MENU')+'\n\n' + menu2, q.name, list, m)
 		// MENU SIMPLE
-		conn.sendteks(m.chat, menu3, d.f1('Simple menu :v',''), d.f2('Github:me',await getpp(m.sender), q.home))
+		//conn.sendteks(m.chat, menu3, d.f1('Simple menu :v',''), d.f2('Github:me',await getpp(m.sender), q.home))
 	}
 }
 
