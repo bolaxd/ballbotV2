@@ -6,7 +6,7 @@ const handle = async (m, { q, d, conn, mime, quoted, repl, db, bot }) => {
 	let path = await quoted.download()
 	let i = db.set.findIndex(v=> v[0] == bot)
 	if (m.quoted.isAnimated == true) {
-		let b = await toVid2(path, {name: db.set[i][1].pack, author: db.set[i][1].auth})
+		let b = await toVid2(path)
 			conn.sendvid(m.chat, b, q.sukses, m)
 	} else if (m.quoted.isAnimated == false) {
 		conn.sendimgbuf(m.chat, await toJpg(path, {name: db.set[i][1].pack, author: db.set[i][1].auth}), q.sukses, m)

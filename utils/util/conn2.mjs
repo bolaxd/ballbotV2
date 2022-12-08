@@ -5,9 +5,10 @@ import bind from './serve.mjs';
 import { configConnectionJadibot, store } from '../config-connection.mjs';
 import msgUp from '../handler/msg-upsert.mjs';
 
-let folder = `TMP/jadibot-${Date.now()}`
 const bebek = async (m, u, conn, q, kontol, conn2, db, fold) => {
 	let { lastDisconnect, connection, qr } = u
+    let listjb = JSON.parse(fs.readFileSync('./utils/db/jadibot.json'))
+	let i = listjb.findIndex(v => v.folder == fold)
 	if (qr) {
 		let scanner = await conn.sendimgbuf(m.chat, Buffer.from((await qrcd.toDataURL(qr, { scale: 8 })).split(',')[1], 'base64'), `Silahkan Scan QR Code ini!!!\nWaktu scan Cuma ${q.longqr/1000} detik...\n\n`, m);
 		setTimeout(async () => {
@@ -17,14 +18,14 @@ const bebek = async (m, u, conn, q, kontol, conn2, db, fold) => {
 	if (connection == 'open') {
 		let noUser = conn2.createJid(conn2.user.id)
 		conn.sendteks(m.chat, `@${noUser.split('@')[0]} Telah tersambung ke server ${q.name}...`, m);
-        let listjadibot = conn.readjson('./utils/db/jadibot.json')
-        if (!listjadibot.find(i => i.id == noUser)) {
-		listjadibot.push({ id: noUser, folder: fold })      
-		conn.writejson('./utils/db/jadibot.json', listjadibot)
+        
+	if (i !== -1) {
+		listjb[i].id = noUser
+		conn.writejson('./utils/db/jadibot.json', listjb)
         }
 	} else if (connection == 'close') {
-    
-		kontol(conn, q, m, db, fold)
+ 
+		(conn, q, m, db, fold)
 		conn.sendteks(m.chat, `Menghubungkan ke session...`, m);
 	}
 }

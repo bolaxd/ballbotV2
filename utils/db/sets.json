@@ -7,7 +7,16 @@
       "group": true,
       "main": false,
       "antitag": false,
-      "store": {},
+      "store": {
+        "turu": {},
+        "TURU": {
+          "creator": [
+            "6285728625940@s.whatsapp.net"
+          ],
+          "date": 1670398655956,
+          "update": 1670398655956
+        }
+      },
       "pack": "Mei stiker++",
       "auth": "Mei botz",
       "setmenu": "list",
@@ -22,11 +31,22 @@
       "group": true,
       "main": false,
       "antitag": false,
-      "store": {},
+      "store": {
+        "turu": {},
+        "TURU": {
+          "creator": [
+            "6285728625940@s.whatsapp.net"
+          ],
+          "date": 1670398656961,
+          "update": 1670398656961
+        }
+      },
       "pack": "Mei stiker++",
       "auth": "Mei botz",
       "setmenu": "list",
-      "jadibot": []
+      "jadibot": {
+        "tes": 9
+      }
     }
   ]
 ]

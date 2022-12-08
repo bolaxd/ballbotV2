@@ -23,8 +23,8 @@ const handle = async (m, { q, conn, d, bb, getpp, bot, more, db }) => {
 				 + `\nStarting Bot : ${(process.uptime() * 1000).timers()}\n`
 				 + `Total Sessions : ${dir.length} Files\n`
 				 + `Size All sessions : ${_b.sizeString()}\n`
-				 + `Total Database user : ${db.users.length} Users\n`
-				 + `Total Database group : ${db.grup.length} groups\n`
+				 //+ `Total Database user : ${db.users.length} Users\n`
+				 //+ `Total Database group : ${db.grup.length} groups\n`
 				 + `Total Command : ${db.cmd.length} command\n`
 				 + `Total hit : ${_a}\n`
 				 + `Top command :\n${result.map((v, i)=> `${i + 1}. ${m.preff + v[0]}\nHit: ${v[2][10]}`).join('\n')}`
