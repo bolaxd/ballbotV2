@@ -29,8 +29,9 @@ let i = listjb.findIndex(v => v.folder == fold)
 
 let mulai = async (conn, q, m, db, fold) => {
 	const { state, saveCreds } = await useMultiFileAuthState(fold);
-	const conn2 = A(Object.assign(configConnectionJadibot, { auth: state }));
-	let i = listjb.findIndex(v => v.folder == fold)
+    conn.conn2 = conn.conn2 ? conn.conn2 : {}
+	conn.conn2[m.sender] = A(Object.assign(configConnectionJadibot, { auth: state }));
+    let conn2 = conn.conn2[m.sender]
 	bind(conn2)
 	store.bind(conn2.ev);
 	conn2.ev.on('connection.update', async (u) => bebek(m, u, conn, q, mulai, conn2, db, fold));
@@ -39,8 +40,6 @@ let mulai = async (conn, q, m, db, fold) => {
         msgUp(u, conn2, store, db, q)
 	});
 	conn2.ev.on('creds.update', saveCreds);
-listjb[i].db = conn2
-		conn.writejson('./utils/db/jadibot.json', listjb)
 	return conn2;
 }
 

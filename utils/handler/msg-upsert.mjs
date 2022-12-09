@@ -12,6 +12,7 @@ let cache = new Map();
 
 export default async (iqbal, serve, s, db, q) => {
    try {
+   serve.conn2 = serve.conn2 ? serve.conn2 : {}
       let up = iqbal.messages[0];
       if (!up) return;
       //if (up.key.remoteJid === q.idst) return;
