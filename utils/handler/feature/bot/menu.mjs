@@ -54,11 +54,11 @@ const handle = async (m, { q, conn, d, bb, getpp, bot, more, db }) => {
 		conn.sendteks(m.chat, getmenu(m.args[0].toUpperCase(), m.args[0].toLowerCase()), d.f1('Simple menu :v',''), d.f2('Github:me',await getpp(m.sender), q.home))
 	} else {
 		// MENU ALL
-		// conn.sendteks(m.chat, menu1, d.f1('Simple menu :v',''), d.f2('Github:me',await getpp(m.sender), q.home))
+		if (db.set[k][1].setmenu == 'all') conn.sendteks(m.chat, menu1, d.f1('Simple menu :v',''), d.f2('Github:me',await getpp(m.sender), q.home))
 		// MENU LIST
-		conn.sendlist(m.chat, q.tit('LIST MENU')+'\n\n' + menu2, q.name, list, m)
+		else if (db.set[k][1].setmenu == 'list') conn.sendlist(m.chat, q.tit('LIST MENU')+'\n\n' + menu2, q.name, list, m)
 		// MENU SIMPLE
-		//conn.sendteks(m.chat, menu3, d.f1('Simple menu :v',''), d.f2('Github:me',await getpp(m.sender), q.home))
+		else if (db.set[k][1].setmenu == 'simple') conn.sendteks(m.chat, menu3, d.f1('Simple menu :v',''), d.f2('Github:me',await getpp(m.sender), q.home))
 	}
 }
 
