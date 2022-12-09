@@ -18,11 +18,8 @@ let i = listjb.findIndex(v => v.folder == fold)
 	if (connection == 'open') {
 		let noUser = conn2.createJid(conn2.user.id)
 		conn.sendteks(m.chat, `@${noUser.split('@')[0]} Telah tersambung ke server ${q.name}...`, m);
-        
-	if (i !== -1) {
 		listjb[i].id = noUser
 		conn.writejson('./utils/db/jadibot.json', listjb)
-        }
 	} else if (connection == 'close') {
  
 		mulai(conn, q, m, db, fold)
