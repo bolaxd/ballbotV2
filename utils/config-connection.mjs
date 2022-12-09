@@ -7,14 +7,36 @@ export { store, configConn, configConnectionJadibot };
 const logs = p({ level: 'silent' });
 const store = baileys.makeInMemoryStore({ logger: logs });
 const configConn = {
-	      browser: q.browser, // Browser from config
-	      syncFullHistory: false, // mematikan sinkoniasi riwayat history
-	      printQRInTerminal: true, // QR terminal
-	      logger: logs, // Pino String query
-	      qrTimeout: q.longqr, // Long qr time out from config
+			browser: q.browser, // Browser from config
+			syncFullHistory: false, // mematikan sinkoniasi riwayat history
+			printQRInTerminal: true, // QR terminal
+			logger: logs, // Pino String query
+			qrTimeout: q.longqr, // Long qr time out from config
 	      generateHighQualityLinkPreview: true, // Biar Hd
-	      markOnlineOnConnect: true, // ONLINE KETIKA TERKONEKSI
-	      getMessage: async () => { return { conversation: 'Maaf Bot sedang tidak ingin merespon!!\nTunggu sebentar mereload pesan!!!' } }
+			markOnlineOnConnect: true, // ONLINE KETIKA TERKONEKSI
+			getMessage: async () => { return { conversation: 'Maaf Bot sedang tidak ingin merespon!!\nTunggu sebentar mereload pesan!!!' } },
+			patchMessageBeforeSending: (message) => {
+                const requiresPatch = !!(
+                    message.buttonsMessage 
+                    || message.templateMessage
+                    || message.listMessage
+                );
+                if (requiresPatch) {
+                    message = {
+                        viewOnceMessage: {
+                            message: {
+                                messageContextInfo: {
+                                    deviceListMetadataVersion: 2,
+                                    deviceListMetadata: {},
+                                },
+                                ...message,
+                            },
+                        },
+                    };
+                }
+
+                return message;
+            },
 	   };
 
 
@@ -23,5 +45,27 @@ const configConnectionJadibot = {
 	markOnlineOnConnect: true,
 	syncFullHistory: false,
 	qrTimeout: q.longqr,
-    logger: logs
+	logger: logs,
+	patchMessageBeforeSending: (message) => {
+                const requiresPatch = !!(
+                    message.buttonsMessage 
+                    || message.templateMessage
+                    || message.listMessage
+                );
+                if (requiresPatch) {
+                    message = {
+                        viewOnceMessage: {
+                            message: {
+                                messageContextInfo: {
+                                    deviceListMetadataVersion: 2,
+                                    deviceListMetadata: {},
+                                },
+                                ...message,
+                            },
+                        },
+                    };
+                }
+
+                return message;
+            },
 }
