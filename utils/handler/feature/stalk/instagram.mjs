@@ -1,9 +1,8 @@
 // const { igApi, fetchUserV2 } = (await import('insta-fetcher')).default;
 // import { instagramStalk } from '@bochilteam/scraper';
-import axios from 'axios';
+import fetch from 'node-fetch';
 
 let baseUrl = 'https://saipulanuar.ga/api/'
-let api = 'G9ak9YmL'
 const handle = async (m, { q, conn, bot, repl }) => {
 	if (!m.args[0]) return repl('Masukan nama instagram nya!');
 	// const ig = new igApi(conn.db.data.set[bot].cookie)
@@ -31,8 +30,8 @@ const handle = async (m, { q, conn, bot, repl }) => {
 	// 			+ `Postingan: ${res.postsH}\n`
 	// conn.sendimg(m.chat, res.avatar, teks, m)
 	
-	let { data } = await axios.get(`${baseUrl}stalk/ig?username=${m.args[0]}&apikey=${api}`)
-	if (data.status !== 200) return repl('API sedang mengalami gangguan...')
+	let data = (await fetch(`https://saipulanuar.ga/api/stalk/ig?username=${m.args[0]}`, {method: 'get'})).json()
+	//if (data.status !== 200) return repl('API sedang mengalami gangguan...')
 	let teks = `STALKING INSTAGRAM\n\n`
 				+ `Username : ${data.result?.username}\n`
 				+ `Name : ${data.result?.fullName}\n`
