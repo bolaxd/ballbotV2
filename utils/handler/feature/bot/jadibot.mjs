@@ -15,6 +15,7 @@ const handle = async(m, { q, conn, mulai, repl, db, bot }) => {
 	const { state, saveCreds } = await useMultiFileAuthState(fold);
 	repl('Tunggu sebentar.. meload QR')
 	conn.conn2[m.sender] = A(Object.assign(configConnectionJadibot, { auth: state }));
+		conn.conn2[m.sender].folder = fold;
 	let conn2 = conn.conn2[m.sender]	
 	bind(conn2)
 	store.bind(conn2.ev)
@@ -31,7 +32,7 @@ const handle = async(m, { q, conn, mulai, repl, db, bot }) => {
 	} else if (connection == 'close') {
 		conn.sendteks(m.chat, `Koneksi terputus...`, m);
 		delete conn.conn2[m.sender]
-		
+		fs.rmSync(conn.conn2[m.sender].folder, { recursive: true, force: true })
 	}
 	});
 	conn2.ev.on('messages.upsert', async (u) => {
