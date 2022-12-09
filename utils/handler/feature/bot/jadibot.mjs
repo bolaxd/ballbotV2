@@ -5,17 +5,13 @@ import fs from 'fs';
 import { configConnectionJadibot, store } from '../../../config-connection.mjs';
 import bind from '../../../util/serve.mjs';
 import msgUp from '../../msg-upsert.mjs';
+
 var listjb = JSON.parse(fs.readFileSync('./utils/db/jadibot.json'))
 
-let fold = `TMP/db-bot${Date.now()}`
-
-const handle = async(m, { q, conn, mulai, repl, db, bot }) => {
-	conn.conn2 = conn.conn2 ? conn.conn2 : {}
-	if (conn.conn2[m.sender] && conn.conn2[m.sender] !== conn.user.id) return repl('Tidak bisa mrmbuat bot didalam jadibot...')
+const mulai = async function mulai(m, q, conn, db, fold) {
 	const { state, saveCreds } = await useMultiFileAuthState(fold);
-	repl('Tunggu sebentar.. meload QR')
 	conn.conn2[m.sender] = A(Object.assign(configConnectionJadibot, { auth: state }));
-		conn.conn2[m.sender].folder = fold;
+	conn.conn2[m.sender].folder = fold;
 	let conn2 = conn.conn2[m.sender]	
 	bind(conn2)
 	store.bind(conn2.ev)
@@ -26,20 +22,34 @@ const handle = async(m, { q, conn, mulai, repl, db, bot }) => {
 				await conn.sendMessage(m.chat, { delete: scanner.key });
 			}, q.longqr);
 		}
-		if (connection == 'open') {
-		let noUser = conn2.createJid(conn2.user.id)
-		conn.sendteks(m.chat, `@${noUser.split('@')[0]} Telah tersambung ke server ${q.name}...`, m);
-	} else if (connection == 'close') {
-		conn.sendteks(m.chat, `Koneksi terputus...`, m);
-		delete conn.conn2[m.sender]
-		fs.rmSync(conn.conn2[m.sender].folder, { recursive: true, force: true })
-	}
+		if (lastDisconnect && lastDisconnect.error && lastDisconnect.error.output && lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut && conn2.ws.readyState !== ws.CONNECTING) {
+			mulai(m, q, conn, db, fold)
+			conn.sendteks(m.chat, `Menghubungkan...`, m);
+		} else if (connection == 'open') {
+			let noUser = conn2.createJid(conn2.user.id)
+			conn.sendteks(m.chat, `@${noUser.split('@')[0]} Telah tersambung ke server ${q.name}...`, m);
+		} else if (connection == 'close') {
+			conn.sendteks('Koneksi terputus...')
+		}
 	});
 	conn2.ev.on('messages.upsert', async (u) => {
         await q.delay(1000)
-        msgUp(u, conn2, store, db, q)
+        msgUp(u, conn.conn2[m.sender], store, db, q)
 	});
 	conn2.ev.on('creds.update', saveCreds);
+	return conn2
+}
+const handle = async(m, { q, conn, repl, db, bot }) => {
+	let fold = `TMP/db-bot${Date.now()}`
+	conn.conn2 = conn.conn2 ? conn.conn2 : {}
+	if (conn.conn2[m.sender] && conn.conn2[m.sender] !== conn.user.id) return repl('Tidak bisa membuat bot didalam jadibot...')
+	repl('Tunggu sebentar.. meload QR')
+	mulai(m, q, conn, db, fold)
+	setTimeout(function() {
+		fs.rmSync(conn.conn2[m.sender].folder, { recursive: true, force: true })
+		conn.conn2[m.sender].ws.end()
+		repl('Waktu sessi Scan QR telah habis...')
+	}, q.longqr*3);
 }
 
 export default handle;
