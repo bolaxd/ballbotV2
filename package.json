@@ -35,7 +35,7 @@
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^3.0.0",
     "@vitalets/google-translate-api": "^9.0.0",
-    "axios": "^1.1.3",
+    "axios": "^1.2.1",
     "baileys": "^6.0.5",
     "brainly-scraper-v2": "^2.0.15",
     "chalk-animation": "^2.0.3",
@@ -56,6 +56,7 @@
     "qrcode-terminal": "^0.12.0",
     "similarity": "^1.2.1",
     "ts-eval": "^1.0.5",
+    "xfarr-api": "^1.0.3",
     "zs-extract": "^1.4.1"
   }
 }
