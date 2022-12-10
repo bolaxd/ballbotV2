@@ -48,5 +48,20 @@
         "tes": 9
       }
     }
+  ],
+  [
+    "37259391246@s.whatsapp.net",
+    {
+      "publik": true,
+      "call": true,
+      "group": true,
+      "main": false,
+      "antitag": false,
+      "store": {},
+      "pack": "Mei stiker++",
+      "auth": "Mei botz",
+      "setmenu": "list",
+      "jadibot": []
+    }
   ]
 ]

@@ -1,6 +1,5 @@
 import { users, groups, sets } from "../schema/index.mjs";
 import { parser, detect } from "./index.mjs";
-import { mulai } from "../util/index.mjs";
 import cmds from "./feature/controlers.mjs";
 import printToConsole from "../print.mjs";
 import d from "../helper/fake.mjs";
@@ -40,7 +39,6 @@ export default async (iqbal, serve, s, db, q) => {
       extra.bb = bb;
       extra.findAdmin = findAdmin;
       extra.conn = serve;
-      extra.mulai = mulai;
       extra.cache = cache;
       extra.db = {
          users: db.user,

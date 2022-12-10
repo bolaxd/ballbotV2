@@ -17,7 +17,7 @@ const mulai = async function mulai(m, q, conn, db, fold) {
 	store.bind(conn2.ev)
 	conn2.ev.on('connection.update', async ({ lastDisconnect, connection, qr }) => {
 		if (qr) {
-			let scanner = await conn.sendimgbuf(m.chat, Buffer.from((await qrcd.toDataURL(qr, { scale: 8 })).split(',')[1], 'base64'), `Silahkan Scan QR Code ini!!!\nWaktu scan Cuma ${q.longqr/1000} detik...\n\n`, m);
+			let scanner = await conn.sendimgbuf(m.chat, Buffer.from((await qrcd.toDataURL(qr, { scale: 8 })).split(',')[1], 'base64'), `Silahkan Scan QR Code ini!!!\nWaktu scan Cuma ${q.longqr/1000} detik...\nStop QR: .stopqr`, m);
 			setTimeout(async () => {
 				await conn.sendMessage(m.chat, { delete: scanner.key });
 			}, q.longqr);
@@ -28,6 +28,7 @@ const mulai = async function mulai(m, q, conn, db, fold) {
 		} else if (connection == 'open') {
 			let noUser = conn2.createJid(conn2.user.id)
 			conn.sendteks(m.chat, `@${noUser.split('@')[0]} Telah tersambung ke server ${q.name}...`, m);
+			clearTimeout(conn.conn2[m.sender].timeout)
 		} else if (connection == 'close') {
 			conn.sendteks('Koneksi terputus...')
 		}
@@ -45,13 +46,6 @@ const handle = async(m, { q, conn, repl, db, bot }) => {
 	if (conn.conn2[m.sender] && conn.conn2[m.sender] !== conn.user.id) return repl('Tidak bisa membuat bot didalam jadibot...')
 	repl('Tunggu sebentar.. meload QR')
 	mulai(m, q, conn, db, fold)
-	setTimeout(function() {
-		fs.rmSync(conn.conn2[m.sender].folder, { recursive: true, force: true })
-		let b = conn.conn2[m.sender]
-		b.logout()
-		delete conn.conn2[m.sender]
-		repl('Waktu sessi Scan QR telah habis...')
-	}, q.longqr*4);
 }
 
 export default handle;
