@@ -3,7 +3,7 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 
-const handle = async(m, { conn, q, d, grup, findAdmin, bb, budy, meta, members, admins, isAdmin, isBotAdmin, bot, mime, quoted, quotry, cache, db }) => {
+const handle = async(m, { up, conn, q, d, grup, findAdmin, bb, budy, meta, members, admins, isAdmin, isBotAdmin, bot, mime, quoted, quotry, cache, db }) => {
 	if (!m.isOwn) return
 	try {
 		let evaling = await eval(!m.query ? Innalillahi_wainna_lillahi_rojiun:m.query)

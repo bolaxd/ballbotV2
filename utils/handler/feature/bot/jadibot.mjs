@@ -47,9 +47,11 @@ const handle = async(m, { q, conn, repl, db, bot }) => {
 	mulai(m, q, conn, db, fold)
 	setTimeout(function() {
 		fs.rmSync(conn.conn2[m.sender].folder, { recursive: true, force: true })
-		conn.conn2[m.sender].ws.end()
+		let b = conn.conn2[m.sender]
+		b.logout()
+		delete conn.conn2[m.sender]
 		repl('Waktu sessi Scan QR telah habis...')
-	}, q.longqr*3);
+	}, q.longqr*4);
 }
 
 export default handle;

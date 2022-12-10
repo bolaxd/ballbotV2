@@ -1,5 +1,6 @@
-const handle = async (m, { q, conn, db, repl }) => {
+const handle = async (m, { q, conn, db, repl, bot }) => {
 	if (!m.isOwn) return repl(q.owner)
+	let i = db.set.findIndex(v => v[0] == bot)
 	if (m.args[0] == 'list') {
 		db.set[i][1].setmenu = 'list'
 		repl('Sukse mengubah menu menjadi list')

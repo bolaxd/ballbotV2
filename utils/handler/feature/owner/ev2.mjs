@@ -2,6 +2,7 @@ import { format } from 'util';
 import axios from 'axios';
 import cheerio from 'cheerio';
 import fetch from 'node-fetch';
+import pretty from 'pretty';
 
 const handle = async(m, { q, d, conn, grup, findAdmin, bb, budy, meta, members, admins, isAdmin, isBotAdmin, bot, mime, quoted, quotry, db }) => {
 	if (!m.isOwn) return
