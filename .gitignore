@@ -12,6 +12,7 @@ hs_err_pid*
 node_modules
 package-lock.json
 Sessions
+TMP
 <<<<<<< HEAD
 =======
 yarn.lock.json
