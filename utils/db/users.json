@@ -7018,5 +7018,41 @@
       "lastafk": -1,
       "daftar": false
     }
+  ],
+  [
+    "6287737981959@s.whatsapp.net",
+    {
+      "win": 0,
+      "lose": 0,
+      "coin": 0,
+      "lastclaim": 1670747230527,
+      "reason": null,
+      "lastafk": -1,
+      "daftar": false
+    }
+  ],
+  [
+    "6282329445451@s.whatsapp.net",
+    {
+      "win": 0,
+      "lose": 0,
+      "coin": 0,
+      "lastclaim": 1670747433950,
+      "reason": null,
+      "lastafk": -1,
+      "daftar": false
+    }
+  ],
+  [
+    "60168838540@s.whatsapp.net",
+    {
+      "win": 0,
+      "lose": 0,
+      "coin": 0,
+      "lastclaim": 1670748061774,
+      "reason": null,
+      "lastafk": -1,
+      "daftar": false
+    }
   ]
 ]
