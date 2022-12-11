@@ -1,4 +1,5 @@
 import { users, groups, sets } from "../schema/index.mjs";
+import { db } from "../db/database.mjs";
 import { parser, detect } from "./index.mjs";
 import cmds from "./feature/controlers.mjs";
 import printToConsole from "../print.mjs";
@@ -9,7 +10,7 @@ const isntNull = (x) => x !== null;
 const findAdmin = (arr) => arr.filter((v) => v.admin !== null).map((i) => i.id);
 let cache = new Map();
 
-export default async (iqbal, serve, s, db, q) => {
+export default async (iqbal, serve, s, q) => {
    try {
    serve.conn2 = serve.conn2 ? serve.conn2 : {}
       let up = iqbal.messages[0];

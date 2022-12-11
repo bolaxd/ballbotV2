@@ -8,7 +8,7 @@ import msgUp from '../../msg-upsert.mjs';
 
 var listjb = JSON.parse(fs.readFileSync('./utils/db/jadibot.json'))
 
-const mulai = async function mulai(m, q, conn, db, fold) {
+const mulai = async function mulai(m, q, conn, fold) {
 	const { state, saveCreds } = await useMultiFileAuthState(fold);
 	conn.conn2[m.sender] = A(Object.assign(configConnectionJadibot, { auth: state }));
 	conn.conn2[m.sender].folder = fold;
@@ -23,7 +23,7 @@ const mulai = async function mulai(m, q, conn, db, fold) {
 			}, q.longqr);
 		}
 		if (lastDisconnect && lastDisconnect.error && lastDisconnect.error.output && lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut && conn2.ws.readyState !== ws.CONNECTING) {
-			mulai(m, q, conn, db, fold)
+			mulai(m, q, conn, fold)
 			conn.sendteks(m.chat, `Menghubungkan...`, m);
 		} else if (connection == 'open') {
 			let noUser = conn2.createJid(conn2.user.id)
@@ -45,7 +45,7 @@ const handle = async(m, { q, conn, repl, db, bot }) => {
 	conn.conn2 = conn.conn2 ? conn.conn2 : {}
 	if (conn.conn2[m.sender] && conn.conn2[m.sender]?.user.id !== conn.user.id) return repl('Tidak bisa membuat bot didalam jadibot...')
 	repl('Tunggu sebentar.. meload QR')
-	mulai(m, q, conn, db, fold)
+	mulai(m, q, conn, fold)
 }
 
 export default handle;
