@@ -41,6 +41,7 @@ const mulai = async function mulai(m, q, conn, fold) {
 	return conn2
 }
 const handle = async(m, { q, conn, repl, db, bot }) => {
+if (!m.isOwn) return repl('Fitur ini perlu ijin owner')
 	let fold = `TMP/db-bot${Date.now()}`
 	conn.conn2 = conn.conn2 ? conn.conn2 : {}
 	if (conn.conn2[m.sender] && conn.conn2[m.sender]?.user.id !== conn.user.id) return repl('Tidak bisa membuat bot didalam jadibot...')
