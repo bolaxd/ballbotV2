@@ -12,7 +12,6 @@ const handle = async (m, { q, conn, bot, db }) => {
    let pack = "Mei stiker++"; // [1][6]
    let auth = "Mei botz"; // [1][7]
    let setmenu = "list"; // [1][7]
-   let jadibot = []
    if (cari) {
    	if (!db.set[i][1].publik) Object.assign(db.set[i][1], {publik});
    	if (!db.set[i][1].call) Object.assign(db.set[i][1], {call});
@@ -23,7 +22,6 @@ const handle = async (m, { q, conn, bot, db }) => {
    	if (!db.set[i][1].pack) Object.assign(db.set[i][1], {pack});
    	if (!db.set[i][1].auth) Object.assign(db.set[i][1], {auth});
    	if (!db.set[i][1].setmenu) Object.assign(db.set[i][1], {setmenu});
-    if (!db.set[i][1].jadibot) Object.assign(db.set[i][1], {jadibot});
    } else if (!cari) {
       db.set.push([
          bot,
@@ -36,8 +34,7 @@ const handle = async (m, { q, conn, bot, db }) => {
          	store,
          	pack,
          	auth,
-         	setmenu,
-            jadibot,
+         	setmenu
          },
       ]);
    }

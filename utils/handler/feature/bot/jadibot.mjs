@@ -43,7 +43,7 @@ const mulai = async function mulai(m, q, conn, db, fold) {
 const handle = async(m, { q, conn, repl, db, bot }) => {
 	let fold = `TMP/db-bot${Date.now()}`
 	conn.conn2 = conn.conn2 ? conn.conn2 : {}
-	if (conn.conn2[m.sender] && conn.conn2[m.sender] !== conn.user.id) return repl('Tidak bisa membuat bot didalam jadibot...')
+	if (conn.conn2[m.sender] && conn.conn2[m.sender]?.user.id !== conn.user.id) return repl('Tidak bisa membuat bot didalam jadibot...')
 	repl('Tunggu sebentar.. meload QR')
 	mulai(m, q, conn, db, fold)
 }
