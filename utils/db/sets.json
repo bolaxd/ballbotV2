@@ -6,7 +6,7 @@
       "call": true,
       "group": true,
       "main": false,
-      "antitag": false,
+      "antitag": true,
       "store": {
         "turu": {},
         "TURU": {
