@@ -35,7 +35,7 @@ const mulai = async function mulai(m, q, conn, fold) {
 	});
 	conn2.ev.on('messages.upsert', async (u) => {
         await q.delay(1000)
-        msgUp(u, conn.conn2[m.sender], store, db, q)
+        msgUp(u, conn.conn2[m.sender], store, q)
 	});
 	conn2.ev.on('creds.update', saveCreds);
 	return conn2

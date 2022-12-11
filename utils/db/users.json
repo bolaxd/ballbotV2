@@ -7066,5 +7066,29 @@
       "lastafk": -1,
       "daftar": false
     }
+  ],
+  [
+    "6285815279879@s.whatsapp.net",
+    {
+      "win": 0,
+      "lose": 0,
+      "coin": 0,
+      "lastclaim": 1670749573929,
+      "reason": null,
+      "lastafk": -1,
+      "daftar": false
+    }
+  ],
+  [
+    "6288217259390@s.whatsapp.net",
+    {
+      "win": 0,
+      "lose": 0,
+      "coin": 0,
+      "lastclaim": 1670751290126,
+      "reason": null,
+      "lastafk": -1,
+      "daftar": false
+    }
   ]
 ]
