@@ -1,4 +1,4 @@
-import { imgToStiker } from '../../../util/convert-media.js';
+import { imgToStiker } from '../../../util/convert-media.mjs';
 
 const handle = async (m, { q, conn, repl, bot, db }) => {
 	if (!m.query) return repl(q.notext);
