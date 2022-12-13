@@ -14,6 +14,7 @@ import q from "./Setting/settings.mjs";
  * @param
  * @returns
  * Created By https://github.com/bolaxd/
+ * Ketahuan jual awas bang, gw ga bakal update lagi
  */
 
 async function mulai() {
