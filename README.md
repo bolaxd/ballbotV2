@@ -36,6 +36,7 @@ Cara ambil script ini
 ```bash
 $ git clone https://github.com/bolaxd/ballbotV2
 $ cd ballbotV2-main
+$ npm install
 ```
 Setting dulu di code editor kalian masing masing
 ```Setting/settings.js```
