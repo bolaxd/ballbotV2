@@ -15,7 +15,6 @@ export default async (iqbal, serve, s, q) => {
    serve.conn2 = serve.conn2 ? serve.conn2 : {}
       let up = iqbal.messages[0];
       if (!up) return;
-      //if (up.key.remoteJid === q.idst) return;
       await serve.readMessages([up.key]);
       if (up.key.id.endsWith("BOLA") && up.key.id.length === 32) return;
       if (up.key.id.startsWith("3EB0") && up.key.id.length === 12) return;
